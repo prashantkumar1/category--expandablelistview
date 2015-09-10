@@ -27,14 +27,19 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         Exp_list = (ExpandableListView) findViewById(R.id.exp_list);
+        //getting data from dataprovider java class
         Jobs_Category = DataProvider.getInfo();
+        // placing data in arraylist
         Jobs_List = new ArrayList<String>(Jobs_Category.keySet());
+        // using that arraylist in adapter class
         adapter = new JobsAdapter(this, Jobs_Category, Jobs_List);
+        //setting the adapter
         Exp_list.setAdapter(adapter);
+        //On the click of any expandable list view , this will work
         Exp_list.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-
+                // Here you can place any funtion to work , here i have placed a toast to show that onChild click funtion is working 
                 Toast.makeText(MainActivity.this, "hi ", Toast.LENGTH_SHORT).show();
                 return true;
             }
