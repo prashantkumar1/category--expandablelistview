@@ -20,6 +20,7 @@ public class JobsAdapter extends BaseExpandableListAdapter   {
     private HashMap<String, List<String>> Jobs_Category;
     private List<String> Jobs_List;
 
+//Constructor 
     public JobsAdapter(Context ctx, HashMap<String, List<String>> Jobs_Category, List<String> Jobs_List)
     {
         this.ctx = ctx;
@@ -41,6 +42,8 @@ public class JobsAdapter extends BaseExpandableListAdapter   {
         return child;
     }
 
+
+
     @Override
     public View getChildView(int parent, int child, boolean lastChild, View convertview,
                              ViewGroup parentview)
@@ -48,6 +51,7 @@ public class JobsAdapter extends BaseExpandableListAdapter   {
         String child_title =  (String) getChild(parent, child);
         if(convertview == null)
         {
+            // It shows how the single child  layout will look like 
             LayoutInflater inflator = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertview = inflator.inflate(R.layout.child_layout, parentview,false);
         }
@@ -88,6 +92,7 @@ public class JobsAdapter extends BaseExpandableListAdapter   {
         String group_title = (String) getGroup(parent);
         if(convertview == null)
         {
+            // It shows how the whole parent layout will look like 
             LayoutInflater inflator = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertview = inflator.inflate(R.layout.parent_layout, parentview,false);
         }
